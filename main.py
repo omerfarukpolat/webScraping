@@ -54,17 +54,3 @@ body_text = soup.findAll("div", class_="tldr-post-content")[0].findAll('p')
 body_text_big = ""
 for i in body_text:
     body_text_big = body_text_big +i.text
-
-#Url içerisindeki html'i indiriyoruz.
-html = requests.get(url).text
-soup = bs(html, "lxml")
-#Özetin bulunduğu element'in metin kısmını alıyoruz.
-summarized = soup.find("div", class_="tldr-sumamry").text
-
-
-#Url içerisindeki html'i indiriyoruz.
-html = requests.get(url).text
-soup = bs(html, "lxml")
-#Başlığı ve zamanı'da element isimlerinden bu şekilde seçip, metinlerini alıyoruz.
-header = soup.find("h1", class_="entry-title h1").text
-timestamp = soup.find("span", class_="updated").text
